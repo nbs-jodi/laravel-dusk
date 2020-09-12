@@ -68,7 +68,7 @@ class LoginTest extends DuskTestCase
                 ->type('email', $this->faker->email)
                 ->type('password', 'password')
                 ->press('Login')
-                ->assertSee(trans('auth.failed'));;
+                ->assertSee(trans('auth.failed'));
         });
     }
 
@@ -87,7 +87,7 @@ class LoginTest extends DuskTestCase
                 ->type('email', $user->email)
                 ->type('password', $this->faker->password(8))
                 ->press('Login')
-                ->assertSee(trans('auth.failed'));;
+                ->assertSee(trans('auth.failed'));
         });
     }
 

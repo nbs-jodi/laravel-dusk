@@ -74,7 +74,7 @@ class RegisterTest extends DuskTestCase
                 ->type('password', $password = $this->faker->password(8))
                 ->type('password_confirmation', $password)
                 ->press('Register')
-                ->assertSee(trans('validation.unique', ['attribute' => 'email']));;
+                ->assertSee(trans('validation.unique', ['attribute' => 'email']));
         });
     }
 
