@@ -1,0 +1,45 @@
+name: Tests
+
+on: [push]
+
+jobs:
+  dusk:
+    runs-on: ubuntu-18.04
+
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [7.2, 7.3, 7.4]
+
+    name: PHP ${{ matrix.php }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+          tools: composer:v2
+          coverage: none
+      - name: PHP version
+        run: php -v
+      - name: Prepare the environment
+        run: cp .env.example .env
+      - name: Install dependencies
+        run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
+      - name: Generate Key
+        run: php artisan key:generate
+      - name: Create SQLite DB
+        run: touch ./database/database.sqlite
+      - name: DB Migration
+        run: php artisan migrate
+      - name: Change Version Chrome Driver
+        run: php artisan dusk:chrome-driver 87
+      - name: Start Chrome Driver
+        run: ./vendor/laravel/dusk/bin/chromedriver-linux &
+      - name: Run Laravel Server
+        run: php artisan serve &
+      - name: Run dusk tests
+        run: php artisan dusk
