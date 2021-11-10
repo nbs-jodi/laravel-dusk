@@ -33,17 +33,17 @@ class HomePage extends Page
         $browser->assertSeeIn('@links:nth-child(1)', 'DOCS')
             ->assertAttribute('@links:nth-child(1)', 'href', 'https://laravel.com/docs');
         $browser->assertSeeIn('@links:nth-child(2)', 'LARACASTS')
-            ->assertAttribute('@links:nth-child(2)', 'href', 'https://laracasts.com/');
+            ->assertAttribute('@links:nth-child(2)', 'href', 'https://laracasts.com');
         $browser->assertSeeIn('@links:nth-child(3)', 'NEWS')
-            ->assertAttribute('@links:nth-child(3)', 'href', 'https://laravel-news.com/');
+            ->assertAttribute('@links:nth-child(3)', 'href', 'https://laravel-news.com');
         $browser->assertSeeIn('@links:nth-child(4)', 'BLOG')
-            ->assertAttribute('@links:nth-child(4)', 'href', 'https://blog.laravel.com/');
+            ->assertAttribute('@links:nth-child(4)', 'href', 'https://blog.laravel.com');
         $browser->assertSeeIn('@links:nth-child(5)', 'NOVA')
-            ->assertAttribute('@links:nth-child(5)', 'href', 'https://nova.laravel.com/');
+            ->assertAttribute('@links:nth-child(5)', 'href', 'https://nova.laravel.com');
         $browser->assertSeeIn('@links:nth-child(6)', 'FORGE')
-            ->assertAttribute('@links:nth-child(6)', 'href', 'https://forge.laravel.com/');
+            ->assertAttribute('@links:nth-child(6)', 'href', 'https://forge.laravel.com');
         $browser->assertSeeIn('@links:nth-child(7)', 'VAPOR')
-            ->assertAttribute('@links:nth-child(7)', 'href', 'https://vapor.laravel.com/');
+            ->assertAttribute('@links:nth-child(7)', 'href', 'https://vapor.laravel.com');
         $browser->assertSeeIn('@links:nth-child(8)', 'GITHUB')
             ->assertAttribute('@links:nth-child(8)', 'href', 'https://github.com/laravel/laravel');
     }
