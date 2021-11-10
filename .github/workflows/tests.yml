@@ -36,7 +36,7 @@ jobs:
       - name: DB Migration
         run: php artisan migrate
       - name: Change Version Chrome Driver
-        run: php artisan dusk:chrome-driver 87
+        run: php artisan dusk:chrome-driver
       - name: Start Chrome Driver
         run: ./vendor/laravel/dusk/bin/chromedriver-linux &
       - name: Run Laravel Server
